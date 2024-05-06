@@ -105,7 +105,7 @@ class Pokemons(PokemonSauvage):
         """
         obtenir le nombre de pokemons sauvages présents dans l'objet
         """
-        return len(self.Pokemons)
+        return len(self.pokemons)
     
     def __str__(self):
         """
@@ -121,9 +121,9 @@ class Pokemons(PokemonSauvage):
         """
         if isinstance(nomPokemon, str):
             #self.Pokemons.pop(nomPokemon)
-            del self.Pokemons[nomPokemon]
+            del self.pokemons[nomPokemon]
         else:
-            print(str(nomPokemon) + " n'est pas un pokemon.")
+            print(str(nomPokemon.nom) + " n'est pas un pokemon.")
         return
     
     def __getitem__(self, clePokemon):
@@ -137,12 +137,12 @@ class Pokemons(PokemonSauvage):
             if clePokemon in self.pokemons:
                 return self.pokemons[clePokemon]
             else:
-                print ('pas dans le tableau')
+                print (str(clePokemon) + " n'est pas dans le tableau")
         else:
             print(str(clePokemon) +" n'est pas un pokemon.")
 
-    def __add__(self, Pokemon):
+    def __append__(self, nomPokemon):
         """
         fonction permettant d'ajouter un Pokemon à l'ensemble des pokemons
         """
-        self.Pokemons += Pokemon
+        self.Pokemons += nomPokemon
