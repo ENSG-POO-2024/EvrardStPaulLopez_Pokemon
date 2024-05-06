@@ -143,3 +143,5 @@ class Pokemons(PokemonSauvage):
 
    #pour ajouter un pokemon
    #pas de surcharge de __add__() pour les dictionnaires
+
+   
