@@ -113,6 +113,7 @@ class Pokemons(PokemonSauvage):
         """
         txt = "Nous sommes les Pokemons de la "
         txt += self.nom
+        #txt += ". Et nous sommes " + len(self.pokemons)
         return txt
     
     def remove(self, nomPokemon):
@@ -120,11 +121,10 @@ class Pokemons(PokemonSauvage):
         Supprimer un Pokemon sauvage lorsqu'il est capturé
         """
         if isinstance(nomPokemon, str):
-            #self.Pokemons.pop(nomPokemon)
-            del self.pokemons[nomPokemon]
+            self.pokemons.pop(nomPokemon)
+            #del self.pokemons[nomPokemon]
         else:
             print(str(nomPokemon.nom) + " n'est pas un pokemon.")
-        return
     
     def __getitem__(self, clePokemon):
         """
@@ -141,8 +141,10 @@ class Pokemons(PokemonSauvage):
         else:
             print(str(clePokemon) +" n'est pas un pokemon.")
 
-    def __append__(self, nomPokemon):
+    def __add__(self, pokemon):
         """
-        fonction permettant d'ajouter un Pokemon à l'ensemble des pokemons
+        fonction permettant d'ajouter un Pokemon
         """
-        self.Pokemons += nomPokemon
+        if (type(pokemon) == PokemonSauvage) or ((type(pokemon) == PokemonDresseur)) :
+            self.pokemons[str(pokemon.nom)] = pokemon
+        return
