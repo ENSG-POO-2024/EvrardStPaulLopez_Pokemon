@@ -17,8 +17,8 @@ class Pokemon:
         return
 
 class PokemonSauvage(Pokemon):
-    def __init__(self, nom, position, type1, type2, barreDeVie):
-        self.position = position
+    def __init__(self, nom, Coord, type1, type2, barreDeVie):
+        self.Coord = Coord
         self.type1 = type1
         self.type2 = type2
         #il y aura 151 pokemons distincts donc
@@ -41,6 +41,7 @@ class PokemonSauvage(Pokemon):
         #qu'il représentait disparaît
         del self
         return
+    
     def mourir(self):
         if self.barreDeVie < 5:
             #lorsque le pokemon est capturé
@@ -48,13 +49,15 @@ class PokemonSauvage(Pokemon):
             self.nom = PokemonDresseur(self.nom, self.type, self.barreDeVie)
             self.supprimer()
         return
+    
     def __str__(self):
         txt = "Je m'appelle "
         txt += str(self.nom)
         txt += ". Je suis de type1 " + str(self.type1)
         txt += " et de type2 " + str(self.type2)
-        txt += ". Je rôde en " + str(self.position)
+        txt += ". Je rôde en " + str(self.Coord)
         txt += ". J'ai " + str(self.barreDeVie) + " points de vie restants"
+        
         return txt
     
 class PokemonDresseur(Pokemon):
@@ -74,7 +77,7 @@ class PokemonDresseur(Pokemon):
     def __str__(self):
         txt = "Je m'appelle "
         txt += str(self.nom)
-        txt += ". Je suis un " + clasq
+        txt += ". Je suis un " + str(self.nom)
         txt += ". Je suis de type " + str(self.type)
         #un pokemon domestique n'a pas de position
         #il est dans le deck du dresseur
@@ -86,17 +89,17 @@ class Pokemons(PokemonSauvage):
         self.nom = nom
         tableau_pokemon = pd.read_csv("./EvrardStPaulLopez_Pokemon/data/pokemon_first_gen.csv")
         #on crée l'objet Pokemon dans une colonne du tableau
-        tableau_pokemon['ObjetPokemon'] = PokemonSauvage(tableau_pokemon['Name'], (rd.random, rd.random), tableau_pokemon['Type 1'], tableau_pokemon['Type 2'],tableau_pokemon['HP'])
-        #à ce stade, la position est aléatoire
-
-        self.Pokemons = {}
-        #on transforme les Series "Nom", nos clés en liste
-        #et les Series d'Objet PokemonSauvage en liste
-        #elles deviennent subscriptables et ajoutables
+        self.pokemons = {}
         nomPokemon = tableau_pokemon['Name'].tolist()
-        objetPokemon = tableau_pokemon['ObjetPokemon'].tolist()
-        for i in range(len(tableau_pokemon['#'].tolist())): #on itère sur l'indice du Pokemon
-            self.Pokemons[nomPokemon[i]] = objetPokemon[i]
+        for i in range(0, 151):
+            nom = tableau_pokemon['Name'][i]
+            type1 = tableau_pokemon['Type 1'][i]
+            type2 = tableau_pokemon['Type 2'][i]
+            hp = tableau_pokemon['HP'][i]
+            #erreur quand j'utilise random pour génèrer les coordonnées: affiche le pointeur, pas le résultat;
+            Coord = (10, 349)
+
+            self.pokemons[nomPokemon[i]] = PokemonSauvage(nom, Coord, type1, type2, hp)
 
     def __len__(self):
         """
@@ -116,8 +119,9 @@ class Pokemons(PokemonSauvage):
         """
         Supprimer un Pokemon sauvage lorsqu'il est capturé
         """
-        if isinstance(nomPokemon, Pokemon):
-            self.Pokemons.pop(nomPokemon)
+        if isinstance(nomPokemon, str):
+            #self.Pokemons.pop(nomPokemon)
+            del self.Pokemons[nomPokemon]
         else:
             print(str(nomPokemon) + " n'est pas un pokemon.")
         return
@@ -129,8 +133,11 @@ class Pokemons(PokemonSauvage):
         si coord renvoyer ça, si str renvoyer ça, si type renvoyer types, 
         """
         if isinstance(clePokemon, str):
-            Pokemon = self.Pokemons[clePokemon]
-            return Pokemon
+            #appel via dictionnaire
+            if clePokemon in self.pokemons:
+                return self.pokemons[clePokemon]
+            else:
+                print ('pas dans le tableau')
         else:
             print(str(clePokemon) +" n'est pas un pokemon.")
 
