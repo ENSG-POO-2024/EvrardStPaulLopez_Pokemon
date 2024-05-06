@@ -32,5 +32,5 @@ print("Après la suppresion de Bulbizard")
 print(len(G1))
 print(G1["Bulbasaur"])
 
-G1 += Salamèche
+G1[str(Salamèche.nom)] = Salamèche
 print(len(G1))

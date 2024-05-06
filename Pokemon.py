@@ -141,10 +141,5 @@ class Pokemons(PokemonSauvage):
         else:
             print(str(clePokemon) +" n'est pas un pokemon.")
 
-    def __add__(self, pokemon):
-        """
-        fonction permettant d'ajouter un Pokemon
-        """
-        if (type(pokemon) == PokemonSauvage) or ((type(pokemon) == PokemonDresseur)) :
-            self.pokemons[str(pokemon.nom)] = pokemon
-        return
+   #pour ajouter un pokemon
+   #pas de surcharge de __add__() pour les dictionnaires
