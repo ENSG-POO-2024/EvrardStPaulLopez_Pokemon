@@ -32,5 +32,5 @@ print("Après la suppresion de Bulbizard")
 print(len(G1))
 print(G1["Bulbasaur"])
 
-G1["Salamèche"] = Salamèche
+G1.pokemons["Salamèche"] = Salamèche
 print(len(G1))

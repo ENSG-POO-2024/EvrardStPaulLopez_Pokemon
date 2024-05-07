@@ -1,6 +1,7 @@
 import numpy as np
 import random as rd
 import pandas as pd
+import os
 
 from abc import abstractmethod
 class Pokemon:
@@ -87,7 +88,7 @@ class PokemonDresseur(Pokemon):
 class Pokemons(PokemonSauvage):
     def __init__(self, nom):
         self.nom = nom
-        tableau_pokemon = pd.read_csv("./EvrardStPaulLopez_Pokemon/data/pokemon_first_gen.csv")
+        tableau_pokemon = pd.read_csv('data/pokemon_first_gen.csv')
         #on crée l'objet Pokemon dans une colonne du tableau
         self.pokemons = {}
         nomPokemon = tableau_pokemon['Name'].tolist()
