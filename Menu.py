@@ -15,9 +15,15 @@ class Menu(QtWidgets.QMainWindow):
         #définir la taille du menu
         self.setGeometry(0, 0, 15000, 8000)
         #self.label = QLabel("Green", self)
-        self.logo()
+
+        #affichage du logo Pokemon
+        self.logo("data/logo_pokemon.png")
+
+        #affichage des options
+        self.options()
         self.show()
         return
+    
     def logo(self, pixpath):
         """
         fonction générant le logo Pokemon dans le menu de démarrage
@@ -27,7 +33,12 @@ class Menu(QtWidgets.QMainWindow):
         label.setPixmap(logoPokemon)
         self.setCentralWidget(label)
 
-        logoPokemon.set
 
 
+        return
+
+    def options(self):
+        """
+        fonction affichant les options du ménu de démarrage
+        """
         return
