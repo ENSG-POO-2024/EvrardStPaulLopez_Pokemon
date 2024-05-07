@@ -62,11 +62,14 @@ class PokemonSauvage(Pokemon):
         return txt
     
 class PokemonDresseur(Pokemon):
-    def __init__(self, nom, type1, type2, barreDeVie):
+    def __init__(self, nom, type1, type2, barreDeVie, icone):
         self.nom = nom
         self.type1 = type1
         self.type2 = type2
         self.barreDeVie = barreDeVie
+        #un objet Pokemon contient son icône
+        #pour son affichage
+        self.icone = icone
 
     def attaquer(self, pokemonAttaque):
         return

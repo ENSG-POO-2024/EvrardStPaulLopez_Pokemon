@@ -13,8 +13,12 @@ from Menu import *
 #####Instanciation des Pokemons ######
 ######################################
 
-Salamèche = PokemonSauvage("Salamèche", (15, 452), "Feu", "Eau", 200)
+#cheminIcone = ""
+#Salamèche = PokemonSauvage("Salamèche", (15, 452), "Feu", "Eau", 200, cheminIcone)
 #print(Salamèche)
+
+### AJOUTER CHEMIN ICONE ###
+"""
 
 G1 = Pokemons("Génération 1")
 print(G1)
@@ -36,6 +40,7 @@ print(G1["Bulbasaur"])
 G1.pokemons["Salamèche"] = Salamèche
 print(len(G1))
 
+"""
 
 ###############################################
 #########Interface graphique - Menu ###########
