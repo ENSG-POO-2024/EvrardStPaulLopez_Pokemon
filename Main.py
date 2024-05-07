@@ -7,6 +7,7 @@ import numpy as np
 
 #import de classes
 from Pokemon import *
+from Menu import *
 
 ######################################
 #####Instanciation des Pokemons ######
@@ -34,3 +35,12 @@ print(G1["Bulbasaur"])
 
 G1.pokemons["Salamèche"] = Salamèche
 print(len(G1))
+
+
+###############################################
+#########Interface graphique - Menu ###########
+###############################################
+
+Jeu = QApplication(sys.argv)
+menu = Menu()
+sys.exit(Jeu.exec())
