@@ -52,21 +52,24 @@ class Menu(QtWidgets.QMainWindow, object):
 
         return
     
-    def nouveau(self):
+    def nouveau():
         """
         lance une partie
         """
+        print(" Bouton Nouvelle partie ok")
         return
     
-    def reprendre(self):
+    def reprendre():
         """
         permet de choisir une ancienne partie et de la reprendre
         """
+        print(" Bouton Reprendre une partie ok")
         return
-    def quitter(self):
+    def quitter():
         """
         permet de quitter le jeu
         """
+        print(" Bouton Quitter une partie ok")
         return
     
     def options(self):
@@ -75,20 +78,27 @@ class Menu(QtWidgets.QMainWindow, object):
         """
         #Créer la couche des options
         options = QtWidgets.QVBoxLayout()
-                #et avec QStackedWidget ?
+        #et avec QStackedWidget ?
 
         #création des boutons et alignement vertical
-        nouvPartie = QtWidgets.QPushButton("&Nouvelle partie", self)
+        nouvPartie = QtWidgets.QPushButton("Nouvelle partie", self)
+
         #750 de gauche vers la droite de l'écran
         #300 du haut vers le bas de l'écran
         nouvPartie.setGeometry(750, 600, 400, 80)
+
+        rePartie = QtWidgets.QPushButton("Reprendre une partie", self)
+        rePartie.setGeometry(750, 680, 400, 80)
+
+        quitte = QtWidgets.QPushButton("Quitter", self)
+        quitte.setGeometry(750, 760, 400, 80)
         
         #QtGui.QIcon()
 
         #connexion aux fonctions
-        #nouvPartie.clicked.connect(self.nouveau(self))
-        #rePartie.clicked.connect(self.reprendre())
-        #quitte.clicked.connect(self.quitter())
+        nouvPartie.clicked.connect(self.nouveau)
+        rePartie.clicked.connect(self.reprendre)
+        quitte.clicked.connect(self.quitter)
 
         return
     #fonctions déclenchant les options
