@@ -21,7 +21,7 @@ class Menu(QtWidgets.QMainWindow, object):
         font.setFamily("Retro Gaming")
 
         #affichage du logo Pokemon
-        self.logo("data/logo_pokemon.png")
+        self.logo("./qt_images/logo_pokemon.png")
 
         #créer l'icône en haut à droite de la fenêtre
         self.icone()
@@ -47,6 +47,15 @@ class Menu(QtWidgets.QMainWindow, object):
         """
         fonction générant le logo Pokemon dans le menu de démarrage
         """
+        #créer le widget
+        logo_pokemon = QtWidgets.QLabel(self)
+        #charger l'image
+        pixmap = QPixmap(pixpath)
+        #l'associer au widget
+        logo_pokemon.setPixmap(pixmap)
+        #ajuster sa position et sa taille dans la fenêtre
+        logo_pokemon.setGeometry(750, 100, 1500, 440)
+
         
 
 
@@ -56,7 +65,8 @@ class Menu(QtWidgets.QMainWindow, object):
         """
         lance une partie
         """
-        print(" Bouton Nouvelle partie ok")
+        
+
         return
     
     def reprendre(self, clicked = False):
