@@ -79,7 +79,7 @@ class Menu(QtWidgets.QMainWindow, object):
         """
         permet de quitter le jeu
         """
-        print(" Bouton Quitter une partie ok")
+        self.close()
         return
     
     def options(self):
