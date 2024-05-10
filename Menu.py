@@ -52,20 +52,20 @@ class Menu(QtWidgets.QMainWindow, object):
 
         return
     
-    def nouveau():
+    def nouveau(self, clicked = False):
         """
         lance une partie
         """
         print(" Bouton Nouvelle partie ok")
         return
     
-    def reprendre():
+    def reprendre(self, clicked = False):
         """
         permet de choisir une ancienne partie et de la reprendre
         """
         print(" Bouton Reprendre une partie ok")
         return
-    def quitter():
+    def quitter(self, clicked = False):
         """
         permet de quitter le jeu
         """
@@ -82,7 +82,7 @@ class Menu(QtWidgets.QMainWindow, object):
 
         #création des boutons et alignement vertical
         nouvPartie = QtWidgets.QPushButton("Nouvelle partie", self)
-
+        Test = QtWidgets.QToolBar("Nouvelle partie", self)
         #750 de gauche vers la droite de l'écran
         #300 du haut vers le bas de l'écran
         nouvPartie.setGeometry(750, 600, 400, 80)
