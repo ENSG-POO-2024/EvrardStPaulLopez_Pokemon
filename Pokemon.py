@@ -61,6 +61,15 @@ class PokemonSauvage(Pokemon):
         
         return txt
     
+    def __repr__(self):
+        txt = "Je m'appelle "
+        txt += str(self.nom)
+        txt += ". Je suis de type1 " + str(self.type1)
+        txt += " et de type2 " + str(self.type2)
+        txt += ". Je rôde en " + str(self.Coord)
+        txt += ". J'ai " + str(self.barreDeVie) + " points de vie restants"
+        return txt
+    
 class PokemonDresseur(Pokemon):
     def __init__(self, nom, type1, type2, barreDeVie, icone):
         self.nom = nom
@@ -112,6 +121,14 @@ class Pokemons(PokemonSauvage):
         return len(self.pokemons)
     
     def __str__(self):
+        """
+        afficher les informations utiles du groupe de Pokemons
+        """
+        txt = "Nous sommes les Pokemons de la "
+        txt += self.nom
+        #txt += ". Et nous sommes " + len(self.pokemons)
+        return txt
+    def __repr__(self):
         """
         afficher les informations utiles du groupe de Pokemons
         """
