@@ -15,7 +15,7 @@ class Menu(QtWidgets.QMainWindow, object):
         #titre principal
         self.setWindowTitle("Pokemon")
         #définir la taille du menu
-        self.setGeometry(0, 0, 1500, 800)
+        self.setGeometry(0, 0, 1100, 570)
         #self.label = QLabel("Green", self)
         font = QtGui.QFont()
         font.setFamily("Retro Gaming")
@@ -54,7 +54,7 @@ class Menu(QtWidgets.QMainWindow, object):
         #l'associer au widget
         logo_pokemon.setPixmap(pixmap)
         #ajuster sa position et sa taille dans la fenêtre
-        logo_pokemon.setGeometry(750, 100, 1500, 440)
+        logo_pokemon.setGeometry(430, 50, 450, 300)
 
         
 
@@ -75,6 +75,7 @@ class Menu(QtWidgets.QMainWindow, object):
         """
         print(" Bouton Reprendre une partie ok")
         return
+    
     def quitter(self, clicked = False):
         """
         permet de quitter le jeu
@@ -95,13 +96,13 @@ class Menu(QtWidgets.QMainWindow, object):
         Test = QtWidgets.QToolBar("Nouvelle partie", self)
         #750 de gauche vers la droite de l'écran
         #300 du haut vers le bas de l'écran
-        nouvPartie.setGeometry(750, 600, 400, 80)
+        nouvPartie.setGeometry(450, 285, 200, 50)
 
         rePartie = QtWidgets.QPushButton("Reprendre une partie", self)
-        rePartie.setGeometry(750, 680, 400, 80)
+        rePartie.setGeometry(450, 335, 200, 50)
 
         quitte = QtWidgets.QPushButton("Quitter", self)
-        quitte.setGeometry(750, 760, 400, 80)
+        quitte.setGeometry(450, 385, 200, 50)
         
         #QtGui.QIcon()
 
