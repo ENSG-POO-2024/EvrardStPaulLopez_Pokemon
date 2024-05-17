@@ -56,9 +56,6 @@ class Menu(QtWidgets.QMainWindow, object):
         #ajuster sa position et sa taille dans la fenêtre
         logo_pokemon.setGeometry(430, 50, 450, 300)
 
-        
-
-
         return
     
     def nouveau(self, clicked = False):
