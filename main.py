@@ -3,6 +3,7 @@
 
 import pygame
 import os
+import time as t
 
 from ClassesMapDresseur import *
 
@@ -29,10 +30,10 @@ Taille_dresseur=(40,40)
 
 # Chargement des images
 #Images du dresseur dans les 4 positions possibles, dont la taille est ajustée pour eviter qu'il soit trop gros
-dresseur_gauche = pygame.transform.scale(pygame.image.load('dresseur_gauche.png'),Taille_dresseur)
-dresseur_droite = pygame.transform.scale(pygame.image.load('dresseur_droite.png'),Taille_dresseur)
-dresseur_face = pygame.transform.scale(pygame.image.load('dresseur_face.png'),Taille_dresseur)
-dresseur_dos = pygame.transform.scale(pygame.image.load('dresseur_dos.png'),Taille_dresseur) 
+dresseur_gauche = pygame.transform.scale(pygame.image.load('dresseur_gauche.png'), Taille_dresseur)
+dresseur_droite = pygame.transform.scale(pygame.image.load('dresseur_droite.png'), Taille_dresseur)
+dresseur_face = pygame.transform.scale(pygame.image.load('dresseur_face.png'), Taille_dresseur)
+dresseur_dos = pygame.transform.scale(pygame.image.load('dresseur_dos.png'), Taille_dresseur) 
 #Image de la map 
 carte= pygame.image.load('map.jpg')
 
@@ -164,13 +165,14 @@ while running: #Tant que running ne passe pas à False (échap ou tous les poké
              # Définir la zone cliquable permettant d'engendrer le combat
              activation_bouton = pygame.Rect(pokemon_x + Taille_Pokemon[0] // 2 - bouton_combat_largeur // 2, pokemon_y-5, bouton_combat_largeur, 20) #Position choisie pour se superposer à l'image du bouton
    
-             # Actions à réaliser lorsque la souris clique sur la zone d'activation du bouton combat
+             # Actions à réaliser lorsque la souris clique sur la zone 
+             #d'activation du bouton combat
              for event in pygame.event.get():
                if event.type == pygame.MOUSEBUTTONDOWN:
                  position_souris = pygame.mouse.get_pos()
                  click_souris = pygame.mouse.get_pressed()
-                 if button_clicked(activation_bouton,position_souris,click_souris): #Si la souris clique sur le bouton combat
-                    choix=''
+                 if button_clicked(activation_bouton, position_souris, click_souris): #Si la souris clique sur le bouton combat
+                    choix = ''
                     while choix not in Dresseur.pokemonDeDepart:
                         print(Dresseur.pokemonDeDepart)
                         choix = input("Choix du pokémon pour combattre parmis ceux possédés :")
@@ -189,7 +191,11 @@ while running: #Tant que running ne passe pas à False (échap ou tous les poké
                     #le combat se lance
                     
                     combat = Combat(p1, p2)
+                    #fenetre de type
+                    # pygame.surface.Surface
+                    
                     issue_combat = combat.lancement_combat() #lance le combat
+                    
                     #fermer la carte en attendant que le combat se déroule
                     
                     if issue_combat == 'Victoire' :
