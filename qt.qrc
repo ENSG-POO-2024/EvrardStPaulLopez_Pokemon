@@ -1,0 +1,7 @@
+<RCC>
+  <qresource>
+    <file>qt_images/fond_vert_feuille.jpeg</file>
+    <file>qt_images/logo_ensg.png</file>
+    <file>qt_images/logo_pokemon.png</file>
+  </qresource>
+</RCC>
