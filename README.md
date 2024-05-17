@@ -1,38 +1,54 @@
 # Pokémon: projet informatique
 
-* Marie-Dominique Van Damme: marie-dominique.van-damme@ensg.eu
-* Melvin Hersent: melvin.hersent@map.cnrs.fr
+### Dans le répertoire "Projet Pokémon", vous avez:
 
-## Matériel de départ
+* le fichier main.py qui contient le code nécessaire pour lancer le jeu et effectuer un combat, bien qu'un problème n'ait pas été résolu concernant le retour de la fenêtre de la carte après la fin du combat.
 
-### Dans le répertoire "document", vous avez:
+* le fichier Menu.py qui contient également le jeu, avec un menu qui se lance au début mais ne permet pas de lancer de combats, nous n'avons pas trouvé le problème puisque l'appel au combat se fait de la même manière que dans main.py mais n'aboutit pas
 
-* la présentation du projet informatique (ProjetInfo_Ing1_2024.pdf)
-* des exemples de règles de combat entre les pokémons (MondePokemon.pdf)
-* le support de cours des interfaces graphiques
+* un fichier Pokemon.py dans lequel ont été définies toutes les classes concernant les Pokemons
 
-### Dans le répertoire "data", vous avez:
+* un fichier ClassesMapDresseur.py dans lequel les classes Map et Dresseur ont été définies
 
-* Un fichier csv contenant les 151 pokemons de la première génération, ainsi que leurs attributs :
-  1. `#` : indique le numéro du pokemon (peut être utilisé comme id)
-  2. `name` : le nom (ici en anglais) du pokemon
-  3. `Type 1` : le type du pokemon
-  4. `Type 2` : le second type du pokemon (s'il en possède un deuxième)
-  5. `Total` : le nombre total de points d'attributs (HP + Attack + Defense + Sp. Attack + Sp. Def + Speed)
-  6. `HP` : le nombre de point de vie de départ
-  7. `Attack` : le nombre de point d'attaque (coefficient pour les dégats infligés)
-  8. `Defense` : le nombre de point de défense (coefficient pour les dégats reçus)
-  9. `Sp. Atk` : le nombre de point d'attaque spéciale (coefficient pour les dégats infligés)
-  10. `Sp. Def` : le nombre de point de défense contre une attaque spéciale (coefficient pour les dégats reçus)
-  11. `Speed` : la vitesse du pokemon (détermine qui joue en premier)
-  12. `Generation` : la génération du pokemon (ici la première)
-  13. `Legendary` : rareté du pokemon, les légendaires sont normalement uniques
+* un fichier combat_code.py dans lequel la classe combat a été définie
 
-* Un fichier csv contenant une liste de pokemons avec des coordonnées géographiques.
+* deux fichiers csv pokemon_coordinates.csv et pokemon_first_gen.csv contenant les données sur les pokémons, que nous avons utilisées dans notre code
 
-## Comment créer votre dépôt github ?
+* un fichier player_turn.py dans lequel est initialisée l'interface de combat utilisée, ainsi qu'un fichier player_turn.ui qui lui est associé et qui permet de modifier l'interface à partir de Qt Designer
 
-1. Se créer un identifiant github
-2. Demander à un enseignant de vous ajouter dans l'organisation **ENSG-POO-2024**
-3. *Forker* (copier) le projet **projetPokemon** et choisissez un nom très personnalisé !
-4. Pour voir comment établir une connexion ssh entre votre ordinateur et github, voir documents/sshConnexion.md
+* deux fichiers ressources_combat.py et ressources_combat.qrc  qui sont nécessaires au fonctionnement de l'interface graphique liée aux combats
+
+
+
+
+### Pour les fichiers sonores et les images, vous avez :
+
+* musique_map et le dossier music qui contiennent la musique qui est jouée lorsque la carte est ouverte et lorsqu'un combat est en cours
+
+* une image map qui correspond au fond de carte utilisé pour le jeu
+
+* des images dresseur_gauche, dresseur_face, dresseur_droite, dresseur_dos qui sont les images utilisées pour afficher le dresseur sur la carte selon sa direction
+
+* une image fight_button qui s'affiche sur la carte lorsque le joueur s'approche suffisamment d'un pokémon
+
+* une image logo_pokemon qui est présente sur le menu du jeu
+
+* un dossier Pokemons_pic qui contient les images des pokémons tels qu'ils s'affichent sur la carte
+
+* un dossier pokemons qui contient les images des pokémons tels qu'ils s'affichent dans les combats
+
+* deux dossier boxes et background qui contiennent respectivement le cadre dans lequel sont affichés les noms et les PV des pokémons en combat, et l'image de fond des combats.
+
+### Le jeu :
+
+Selon le code lancé, il y a ou non un menu au jeu, à partir duquel il est possible de lancer une partie.
+Le joueur contrôle alors un dresseur qui peut se déplacer sur la carte. Lorsqu'il s'approche suffisamment d'un pokémon, son image apparaît également sur la carte, et un bouton "Fight" également lorsque le joueur s'en rapproche davantage. 
+En cliquant sur ce bouton, un combat se lance et le joueur doit choisir un pokémon dans ceux de son inventaire (écrire son nom dans la console) pour l'affrontement.
+Le combat propose trois actions pour le joueur : la fuite fait quitter le combat, les deux types d'attaque permettent d'affaiblir l'adversaire, qui lui même attaquera après.
+Si le joueur perd, il revient sur la carte. S'il gagne, il capture le pokémon s'il ne le possède pas déjà et peut l'utiliser dans de futurs combats.
+Le jeu prend fin lorsque les 151 pokémons ont été capturés.
+
+
+
+
+* Par Anthony EVRARD, Aitor LOPEZ et Gaëlle SAINT-PAUL
